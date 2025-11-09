@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "f6",
   "private": true,
   "scripts": {
     "build": "turbo run build",
