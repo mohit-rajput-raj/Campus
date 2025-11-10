@@ -1,7 +1,6 @@
 {
   "name": "campus",
   "private": true,
- 
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -19,5 +18,14 @@
   "packageManager": "pnpm@10.15.0",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "lucide-react": "catalog:",
+    "recharts": "2.15.4",
+    "sonner": "^2.0.7",
+    "zod": "^4.1.12"
   }
 }
