@@ -1,6 +1,6 @@
-# Turborepo starter
+# campus
 
-This Turborepo starter is maintained by the Turborepo core team.
+This company wants to do thats no one do before.
 
 ## Using this example
 
