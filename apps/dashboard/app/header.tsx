@@ -27,7 +27,7 @@ const Header = (props: Props) => {
                       </SignUpButton>
                     </SignedOut>
                     <SignedIn>
-                        <Button className='dark:bg-zinc-800' onClick={() => router.push("/dashboard")}>dashboard</Button>
+                        <Button  onClick={() => router.push("/dashboard")}>dashboard</Button>
                       <UserButton />
                     </SignedIn>
                     <ModeToggle/>

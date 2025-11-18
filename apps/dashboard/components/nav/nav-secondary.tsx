@@ -41,7 +41,7 @@ export function NavSecondary({
           ))}
           <SidebarMenuItem>
               <SidebarMenuButton className="cursor-pointer" asChild >
-                <a href="http://localhost:3000/" target="_blank" >
+                <a href="http://localhost:3000/" >
                   <DockIcon/>
                   <span>Docs</span>
                 </a>

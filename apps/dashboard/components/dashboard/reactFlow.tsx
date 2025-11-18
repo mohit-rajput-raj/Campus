@@ -13,6 +13,7 @@ import {
 
 import '@xyflow/react/dist/style.css';
 import { IconFileText } from '@tabler/icons-react';
+import { he } from 'zod/locales';
 
 
 const nodeDefaults = {
@@ -48,6 +49,9 @@ const initialNodes = [
       border: "2px solid black",
       borderRadius: "8px",
       padding: 10,
+      width: "100px",
+      height: "300px"
+
     },
     data: { label: <span  className='text-black flex items-center gap-2'>Node 12 <IconFileText size={20} /></span>},
     ...nodeDefaults,
@@ -65,6 +69,7 @@ const initialEdges = [
     id: 'e1-3',
     source: '3',
     target: '1',
+    animated:true,
   },
   {
     id: 'e1-4',

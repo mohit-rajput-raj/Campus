@@ -7,7 +7,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from "@repo/ui/components/ui/breadcrumb";
+} from "@/components/ui/components";
 import { usePathname } from "next/navigation";
 
 export function BreadcrumbWithCustomSeparator() {
