@@ -4,7 +4,6 @@ import { SidebarTrigger } from "@repo/ui/components/ui/sidebar"
 import { ModeToggle } from "@repo/ui/components/themes/toogle"
 import { BreadcrumbWithCustomSeparator } from "../breadcrumb/breadcrumb"
 import { CurrUsers } from "./nav-user"
-import { SheetDemo } from "../dashboard/sheet"
 
 export function SiteHeader() {
   return (
@@ -29,7 +28,7 @@ export function SiteHeader() {
           </Button> */}
           <CurrUsers />
                              <ModeToggle/>
-                             <SheetDemo/>
+                             
 
         </div>
       </div>

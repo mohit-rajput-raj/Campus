@@ -32,7 +32,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@repo/ui/components/ui/sidebar"
-import { DockIcon } from "lucide-react"
+import { useRouteAuthContextHook } from "@/context/routeContext"
+import { toast } from "sonner"
 
 const data = {
   user: {
@@ -43,7 +44,7 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/",
+      url: "/editor",
       icon: IconDashboard,
     },
     {
@@ -154,9 +155,55 @@ const data = {
       icon: IconFileWord,
     },
   ],
+  projects: [
+    {
+      name: "Projects",
+      url: "/projects",
+      icon: IconDatabase,
+    },
+    {
+      name: "People",
+      url: "/people",
+      icon: IconReport,
+    },
+    {
+      name: "Billing",
+      url: "/billing",
+      icon: IconFileWord,
+    },
+    {
+      name:"Integration",
+      url:"/integration",
+      icon: IconFileWord,
+      
+    },
+    {
+      name:"Settings",
+      url:"/settings",
+      icon: IconFileWord,
+      
+    }
+  ],
 }
-
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
+  val: string;
+  
+};
+import { clerkuser } from "@/provider/clerkprovider"
+import { NavProjects } from "./nav-projects"
+export const  AppSidebar=({ val, ...props }: AppSidebarProps) =>{
+  console.log(val);
+  const {dash_id , main_id} = useRouteAuthContextHook();
+  // const {userId } =await clerkuser();
+  // React.useEffect(()=>{
+  //   try {
+  //     setmainid(userId || "error");
+      
+  //   } catch (error) {
+  //     toast.message("clerk id is not loaded")
+  //   }
+  // },[userId])
+  
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -174,11 +221,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
+     {val==="dashboard" && (
+       <SidebarContent>
+        <NavMain items={data.navMain} dashid={dash_id}/>
+        <NavDocuments items={data.documents} val={val} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
+     )}
+     {val==="projects" && ( <SidebarContent>
+        {/* <NavMain items={data.navMain} /> */}
+        <NavProjects items={data.projects} main_id={main_id} val={val} />
+      </SidebarContent>)}
       <SidebarFooter className="flex gap-3 justify-between ">
         <NavUser user={data.user} />
         <CurrUsers />

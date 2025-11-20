@@ -26,7 +26,7 @@ import {
 } from "@repo/ui/components/ui/sidebar"
 import { useRouter } from "next/navigation"
 
-export function NavDocuments({
+export function NavProjects({
   items,
   val ,
   main_id
@@ -47,7 +47,7 @@ export function NavDocuments({
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton className="cursor-pointer" asChild onClick={() => router.push( "/"+val+ item.url)}>
+            <SidebarMenuButton className="cursor-pointer" asChild onClick={() => router.push( "/"+val+"/"+ main_id+ item.url)}>
               <a >
                 <item.icon />
                 <span>{item.name}</span>

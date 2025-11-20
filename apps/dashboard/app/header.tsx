@@ -11,13 +11,17 @@ import {
 import { useRouter } from 'next/navigation'
 import { Button } from '@repo/ui/components/ui/button'
 import { ModeToggle } from '@repo/ui/components/themes/toogle'
+import { useRouteAuthContextHook } from '@/context/routeContext'
 
 type Props = {}
 
 const Header = (props: Props) => {
     const router = useRouter();
+    const {main_id}=useRouteAuthContextHook()
+    // const userId = "12"
+    // const {userId} = await clerkuser()
   return (
-    <header className="flex justify-end items-center p-4 gap-4 h-16 absolute w-full top-0 left-0 z-20 fixed">
+    <header className="flex justify-end items-center p-4 gap-4 h-16  w-full top-0 left-0 z-20 fixed">
                     <SignedOut>
                       <SignInButton />
                       <SignUpButton>
@@ -27,7 +31,7 @@ const Header = (props: Props) => {
                       </SignUpButton>
                     </SignedOut>
                     <SignedIn>
-                        <Button  onClick={() => router.push("/dashboard")}>dashboard</Button>
+                        <Button  onClick={() => router.push(`/projects/${main_id}/projects`)}>dashboard</Button>
                       <UserButton />
                     </SignedIn>
                     <ModeToggle/>

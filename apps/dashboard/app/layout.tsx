@@ -1,3 +1,4 @@
+import AuthRoutesIdProvider from "@/context/routeContext";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@repo/ui/components/themes/theme-provider";
 import "@repo/ui/globals.css";
@@ -28,8 +29,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
             >
+               <AuthRoutesIdProvider>
 
-        {children}
+        {children}</AuthRoutesIdProvider>
           </ThemeProvider>
         </body>
     </html>

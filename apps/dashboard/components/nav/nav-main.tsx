@@ -14,13 +14,16 @@ import { useRouter } from "next/navigation"
 
 export function NavMain({
   items,
+  dashid
 }: {
+  dashid:string,
   items: {
     title: string
     url: string
     icon?: Icon
   }[]
 }) {
+
   const router = useRouter();
   return (
     <SidebarGroup>
@@ -28,7 +31,7 @@ export function NavMain({
         <SidebarMenu>
           <SidebarMenuItem className="flex items-center gap-2">
             <SidebarMenuButton
-            onClick={()=>router.push("/create")}
+            onClick={()=>router.push("/projects")}
               tooltip="Quick Create"
               className=" cursor-pointer dark:bg-zinc-300 text-primary-foreground hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
             >
@@ -49,7 +52,7 @@ export function NavMain({
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton className="cursor-pointer" tooltip={item.title} onClick={() => router.push("/dashboard" + item.url)}>
+              <SidebarMenuButton className="cursor-pointer" tooltip={item.title} onClick={() => router.push(`/dashboard/dash/${dashid}` + item.url)}>
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
               </SidebarMenuButton>
